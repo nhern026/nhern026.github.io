@@ -1,4 +1,3 @@
-# nhern026.github.io
 # Nicholas (Nico) Hernandez
 
 **MS CS @ Georgia Tech (Fall 2026) · BS CS @ Boston College (2026) · GPA 3.89**  
