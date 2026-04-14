@@ -63,10 +63,10 @@ Automated solver for the NYT Pips puzzle using Z3. Encoded the puzzle as a const
 ## Education
 
 **Georgia Tech** — MS Computer Science *(starting Fall 2026)*  
-Specialization: Machine Learning
+Specialization: Robotics and Perception
 
 **Boston College** — BS Computer Science, Minor in Mathematics *(May 2026)*  
-GPA: 3.89 · Dean's List  
+GPA: 3.89 · Alpha Sigma Nu Honor Society · Phi Beta Kappa · Dean's List 
 Relevant coursework: NLP, Machine Learning, Computer Vision, Robotics, Algorithms, Linear Algebra, Probability & Statistics
 
 ---
