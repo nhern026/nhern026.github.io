@@ -46,14 +46,6 @@ Binary classification of Billboard Hot 100 hits from song lyrics. Compared BoW, 
 Spatial analysis project mapping the relationship between datacenter density and residential utility bill costs across Virginia. Built using ArcGIS with publicly available utility and infrastructure datasets.  
 `ArcGIS` `GIS` `Spatial Analysis`
 
-**Face-Reactive Music Synthesizer**  
-Real-time facial landmark detection mapped to synthesizer parameters. Browser-based audio synthesis triggered by facial expressions.  
-`MediaPipe` `Tone.js` `JavaScript`
-
-**Domino Puzzle Solver**  
-Constraint satisfaction solver with visual output for domino tiling puzzles.  
-`Z3` `Pygame` `Python`
-
 **Domino Pip Solver** · w/ Kai Gowers · Logic & Computation Course  
 Automated solver for the NYT Pips puzzle using Z3. Encoded the puzzle as a constraint satisfaction problem: Boolean placement variables per domino/edge/orientation, integer cell value variables (0–6), and regional constraints (sum_lt, sum_eq, all_eq, all_diff). Guarantees every cell is filled by exactly one domino side while satisfying all regional pip conditions.  
 `Z3` `Python` `CSP`
@@ -84,8 +76,6 @@ Relevant coursework: NLP, Machine Learning, Computer Vision, Robotics, Algorithm
 ## Currently
 
 - Finishing senior thesis (MT for Formosan languages, ACL Rolling Review)
-- Building a robotics perception portfolio before starting at Georgia Tech
-- Learning: 3D computer vision, point cloud processing, sensor fusion
 
 ---
 
