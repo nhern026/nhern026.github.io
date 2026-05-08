@@ -1,879 +1,1435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nicholas “Nico” Hernandez</title>
-  <meta name="description" content="Nicholas Hernandez — ML researcher and incoming Georgia Tech MSCS student focused on NLP, robotics, and perception." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #070a13;
-      --bg-soft: #0d1222;
-      --card: rgba(17, 24, 39, 0.72);
-      --card-solid: #111827;
-      --text: #eef2ff;
-      --muted: #a5b4c8;
-      --muted-2: #64748b;
-      --line: rgba(148, 163, 184, 0.18);
-      --blue: #7dd3fc;
-      --cyan: #22d3ee;
-      --violet: #a78bfa;
-      --gold: #facc15;
-      --green: #34d399;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(125, 211, 252, 0.15), transparent 28%),
-        radial-gradient(circle at 80% 0%, rgba(167, 139, 250, 0.16), transparent 30%),
-        radial-gradient(circle at 50% 85%, rgba(34, 211, 238, 0.08), transparent 34%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 10, 19, 0.72);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      width: min(1120px, calc(100% - 40px));
-      height: 72px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--blue), var(--violet));
-      color: #08111f;
-      box-shadow: 0 12px 30px rgba(125, 211, 252, 0.25);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: color 180ms ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      min-height: calc(100vh - 72px);
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 56px;
-      padding: 72px 0 52px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--blue);
-      background: rgba(125, 211, 252, 0.06);
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 rgba(52, 211, 153, 0.7);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
-      70% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-    }
-
-    h1 {
-      font-size: clamp(3.2rem, 8vw, 6.7rem);
-      line-height: 0.95;
-      letter-spacing: -0.08em;
-      max-width: 760px;
-      margin-bottom: 24px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #ffffff, #bae6fd 38%, #c4b5fd 78%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-copy {
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.6vw, 1.28rem);
-      max-width: 680px;
-      margin-bottom: 32px;
-    }
-
-    .hero-copy strong {
-      color: var(--text);
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-weight: 800;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(125, 211, 252, 0.55);
-      background: rgba(125, 211, 252, 0.07);
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--blue), var(--violet));
-      color: #08111f;
-      border-color: transparent;
-      box-shadow: 0 16px 40px rgba(125, 211, 252, 0.23);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 700px;
-    }
-
-    .stat {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.035);
-    }
-
-    .stat b {
-      display: block;
-      font-size: 1.45rem;
-      letter-spacing: -0.04em;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 600;
-    }
-
-    .hero-card {
-      position: relative;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(17, 24, 39, 0.82), rgba(17, 24, 39, 0.42));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      animation: float 5.5s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -80px -80px auto auto;
-      width: 190px;
-      height: 190px;
-      background: radial-gradient(circle, rgba(125, 211, 252, 0.24), transparent 70%);
-    }
-
-    .terminal {
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      border-radius: 18px;
-      background: rgba(2, 6, 23, 0.72);
-      overflow: hidden;
-    }
-
-    .terminal-top {
-      display: flex;
-      gap: 8px;
-      padding: 14px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-    }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 999px;
-      background: var(--muted-2);
-    }
-
-    .terminal-body {
-      padding: 20px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9rem;
-      color: #cbd5e1;
-    }
-
-    .terminal-body p {
-      margin: 0 0 14px;
-    }
-
-    .cyan { color: var(--cyan); }
-    .violet { color: var(--violet); }
-    .gold { color: var(--gold); }
-    .green { color: var(--green); }
-
-    section {
-      padding: 82px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    .section-label {
-      color: var(--blue);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      letter-spacing: -0.06em;
-      line-height: 1.03;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .project-card,
-    .research-card,
-    .info-card {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-      backdrop-filter: blur(14px);
-      overflow: hidden;
-      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
-    }
-
-    .project-card:hover,
-    .research-card:hover,
-    .info-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(125, 211, 252, 0.45);
-      background: rgba(17, 24, 39, 0.9);
-    }
-
-    .project-card::after,
-    .research-card::after,
-    .info-card::after {
-      content: "";
-      position: absolute;
-      inset: auto 16px 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.65), transparent);
-      opacity: 0;
-      transition: opacity 220ms ease;
-    }
-
-    .project-card:hover::after,
-    .research-card:hover::after,
-    .info-card:hover::after {
-      opacity: 1;
-    }
-
-    .card-visual {
-      height: 155px;
-      background:
-        linear-gradient(135deg, rgba(125, 211, 252, 0.22), rgba(167, 139, 250, 0.18)),
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 18%),
-        #0f172a;
-      border-bottom: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      color: rgba(238, 242, 255, 0.82);
-      font-size: 2.2rem;
-    }
-
-    .card-body {
-      padding: 22px;
-    }
-
-    .card-kicker {
-      color: var(--blue);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    h3 {
-      font-size: 1.22rem;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .card-body p,
-    .research-card p,
-    .info-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      display: inline-flex;
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: rgba(125, 211, 252, 0.08);
-      border: 1px solid rgba(125, 211, 252, 0.14);
-      color: #c4eafe;
-      font-size: 0.76rem;
-      font-weight: 800;
-    }
-
-    .research-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .research-card {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 24px;
-      padding: 24px;
-    }
-
-    .year {
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      font-size: 1.6rem;
-    }
-
-    .meta {
-      color: var(--muted-2);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .mini-card {
-      min-height: 100%;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 18px;
-    }
-
-    .info-card {
-      padding: 24px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 20px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .timeline-item:last-child {
-      border-bottom: none;
-    }
-
-    .timeline-date {
-      color: var(--blue);
-      font-weight: 900;
-    }
-
-    .skill-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill {
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.035);
-      color: #dbeafe;
-      font-weight: 800;
-      font-size: 0.88rem;
-    }
-
-    .footer {
-      padding: 42px 0 64px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 600ms ease, transform 600ms ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 920px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        animation: none;
-      }
-
-      .featured-grid,
-      .projects-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .research-card {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .page,
-      .nav-inner {
-        width: min(100% - 28px, 1120px);
-      }
-
-      .hero {
-        padding-top: 48px;
-      }
-
-      .stats,
-      .featured-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-subtitle {
-        margin-top: 12px;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicholas Hernandez — ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0f0f2;
+  --bg2: #e6e6ea;
+  --white: #ffffff;
+  --surface: #ffffff;
+  --border: #dddde3;
+  --border2: #c4c4cc;
+  --text: #1a1714;
+  --text-mid: #5c5650;
+  --text-dim: #9c9590;
+  --accent: #6b3fd4;
+  --accent-warm: #9b59b6;
+  --accent-green: #3a7bd5;
+  --accent-light: #ede8fb;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+  --radius: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(240,240,242,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--text-mid);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-cta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  background: var(--text);
+  color: var(--white);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover { background: var(--accent); }
+
+/* ── LAYOUT ── */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── HERO ── */
+#hero {
+  padding: 60px 0 50px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Photo slot */
+.photo-slot {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 3px solid var(--border);
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.photo-slot:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-light);
+}
+
+.photo-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-dim);
+}
+
+.photo-placeholder svg { opacity: 0.4; }
+.photo-placeholder span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* hidden file input trigger */
+.photo-slot input[type=file] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+}
+
+.hero-center {}
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 22px;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.pill-blue { background: #ede8fb; color: #6b3fd4; border: 1px solid #cfc0f5; }
+.pill-warm { background: #fdf0e8; color: var(--accent); border: 1px solid #f3cdb5; }
+.pill-green { background: #e8f0fb; color: #3a7bd5; border: 1px solid #b3c9f0; }
+
+.hero-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-dark {
+  background: var(--text);
+  color: var(--white);
+}
+.btn-dark:hover { background: var(--accent); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-mid);
+  border: 1px solid var(--border2);
+}
+.btn-outline:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* hero right: stat card */
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 160px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.stat-card .num.blue { color: var(--accent); }
+.stat-card .num.warm { color: var(--accent-warm); }
+.stat-card .num.green { color: var(--accent-green); }
+
+.stat-card .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ── SECTION SHARED ── */
+section { padding: 50px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+
+.sec-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+
+/* ── RESEARCH ── */
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.r-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.r-card:hover {
+  border-color: var(--border2);
+  box-shadow: var(--shadow-md);
+}
+
+.r-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.b-blue { background: var(--accent-light); color: var(--accent); }
+.b-green { background: #e8f0fb; color: var(--accent-green); }
+.b-warm { background: #f3ecfb; color: var(--accent-warm); }
+.b-gray { background: var(--bg2); color: var(--text-dim); border: 1px solid var(--border); }
+
+.r-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.r-advisor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.r-desc {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-mid);
+  letter-spacing: 0.03em;
+}
+
+.r-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 120px;
+}
+
+.r-stat {
+  text-align: right;
+}
+
+.r-stat .n {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.r-stat .n.warm { color: var(--accent-warm); }
+
+.r-stat .l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.p-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.p-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Project photo slot */
+.p-photo {
+  height: 140px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.p-photo:hover { background: var(--bg); }
+
+.p-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.p-photo input[type=file] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+}
+
+.p-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.p-photo-placeholder svg { opacity: 0.35; }
+.p-photo-placeholder span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.p-body {
+  padding: 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.p-course {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.p-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 7px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.p-card p {
+  font-size: 12.5px;
+  color: var(--text-mid);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 12px;
+}
+
+/* ── TS CHART ── */
+.ts-mini {
+  background: var(--bg2);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.ts-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.ts-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+}
+
+.ts-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  width: 42px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ts-bar {
+  flex: 1;
+  height: 5px;
+  background: var(--bg);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ts-fill { height: 100%; border-radius: 2px; }
+.ts-fill.us { background: var(--accent); }
+.ts-fill.them { background: var(--text-dim); }
+
+.ts-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  width: 28px;
+  text-align: right;
+}
+
+/* ── TWO-COL GRID ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.sk-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sk-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sk-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sk-list li {
+  font-size: 13px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sk-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border2);
+  flex-shrink: 0;
+}
+
+/* ── EDU ── */
+.edu-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: box-shadow 0.2s;
+}
+
+.edu-card:hover { box-shadow: var(--shadow-md); }
+
+.edu-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.edu-school {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.edu-degree {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; gap: 7px; flex-wrap: wrap; }
+
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.chip-blue { background: #ede8fb; color: var(--accent); }
+.chip-gray { background: var(--bg2); color: var(--text-dim); border: 1px solid var(--border); }
+
+/* ── CURRENTLY ── */
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.now-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
+}
+
+.now-card:hover { box-shadow: var(--shadow-md); }
+
+.now-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  margin-bottom: 12px;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+  animation: pulse 2.5s ease infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+.now-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.now-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.footer-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--text-mid);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+/* ── FADE IN ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 800px) {
+  .page { padding: 0 20px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: row; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .now-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+
+/* ── CONWAY GOL BACKGROUND ── */
+#gol-canvas {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+#gol-canvas.active { display: block; }
+
+/* When GOL active, make content sit above and cards readable */
+body.gol-active nav,
+body.gol-active section,
+body.gol-active footer {
+  position: relative;
+  z-index: 1;
+}
+body.gol-active .r-card,
+body.gol-active .p-card,
+body.gol-active .sk-group,
+body.gol-active .edu-card,
+body.gol-active .now-card,
+body.gol-active .stat-card,
+body.gol-active .hero-stats,
+body.gol-active #hero,
+body.gol-active section {
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(2px);
+}
+body.gol-active nav {
+  background: rgba(240,240,242,0.94);
+}
+body.gol-active .p-card {
+  background: rgba(255,255,255,0.88);
+}
+
+#gol-msg {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--border2);
+  padding: 8px 20px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  white-space: nowrap;
+  z-index: 300;
+}
+#gol-msg.show { opacity: 1; }
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark">NH</span>
-        <span>Nico Hernandez</span>
-      </a>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
 
-  <main id="top" class="page">
-    <section class="hero">
+
+<!-- CONWAY GOL BACKGROUND -->
+<canvas id="gol-canvas"></canvas>
+<div id="gol-msg">Conway's Game of Life — scroll to explore the simulation</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Nicholas Hernandez</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#hero">Education</a></li>
+    </ul>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <button id="golBtn" onclick="toggleGOL()" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;padding:7px 18px;background:transparent;color:var(--accent);border:1.5px solid var(--accent);border-radius:4px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#ede8fb'" onmouseout="this.style.background='transparent'">CLICK ME</button>
+      <a href="#" class="nav-cta">Resume ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="page">
+
+    <!-- Top row: photo + bio + stats -->
+    <div class="hero-grid">
+
+      <!-- Photo -->
       <div>
-        <div class="eyebrow"><span class="pulse"></span> Incoming MSCS @ Georgia Tech · Fall 2026</div>
-        <h1><span class="gradient-text">Nicholas “Nico” Hernandez</span></h1>
-        <p class="hero-copy">
-          I build machine learning systems for <strong>low-resource language technology</strong>,
-          <strong>robotics</strong>, and <strong>perception</strong> — from endangered Formosan MT/ASR
-          to robot planning, control, and embodied AI.
+        <div class="photo-slot" id="profilePhotoSlot" title="Click to upload your photo">
+          <div class="photo-placeholder" id="profilePlaceholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add<br>Photo</span>
+          </div>
+          <img id="profileImg" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="Profile">
+          <input type="file" accept="image/*" id="profileInput">
+        </div>
+      </div>
+
+      <!-- Center -->
+      <div>
+        <div class="hero-eyebrow">ML Engineer · NLP Researcher</div>
+        <h1>Nicholas <em>"Nico"</em><br>Hernandez</h1>
+        <p class="hero-sub">
+          Research in low-resource NLP — MT & ASR for endangered Formosan languages. Pivoting toward <strong>robotics perception</strong>.
         </p>
-        <div class="cta-row">
-          <a class="btn primary" href="YOUR_RESUME_LINK_HERE" target="_blank" rel="noreferrer">View Resume</a>
-          <a class="btn" href="YOUR_LINKEDIN_LINK_HERE" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="mailto:YOUR_EMAIL_HERE">Email</a>
-          <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="hero-pills">
+          <span class="pill pill-blue">NLP · ASR · MT</span>
+          <span class="pill pill-warm">ACL Under Review</span>
+          <span class="pill pill-green">→ Waymo · NVIDIA · Robotics</span>
         </div>
-        <div class="stats">
-          <div class="stat"><b>3.89</b><span>Boston College GPA</span></div>
-          <div class="stat"><b>ACL ARR</b><span>Paper under review</span></div>
-          <div class="stat"><b>NLP → Robotics</b><span>Research direction</span></div>
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Research terminal card">
-        <div class="terminal">
-          <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="terminal-body">
-            <p><span class="cyan">nico@portfolio</span>:<span class="violet">~</span>$ focus</p>
-            <p>→ <span class="green">low_resource_mt</span>: NLLB-200 + Formosan languages</p>
-            <p>→ <span class="green">asr_transfer</span>: Wav2Vec2 XLSR-53 + ATDS</p>
-            <p>→ <span class="green">robotics_ml</span>: perception, planning, ROS2</p>
-            <p><span class="gold">currently</span>: finishing senior thesis + preparing for Georgia Tech</p>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="work">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">Featured Work</div>
-          <h2>Research and systems with real-world stakes.</h2>
-        </div>
-        <p class="section-subtitle">A focused mix of NLP research, low-resource language technology, reinforcement learning, and robotics/perception projects.</p>
-      </div>
-
-      <div class="featured-grid">
-        <article class="project-card reveal">
-          <div class="card-visual">🌐</div>
-          <div class="card-body">
-            <div class="card-kicker">Senior Thesis</div>
-            <h3>Machine Translation for Formosan Languages</h3>
-            <p>Fine-tuning Meta’s NLLB-200 for endangered Formosan languages using custom language ID tokens, supplementary-language augmentation, and cousin-language transfer experiments.</p>
-            <div class="tags"><span class="tag">NLLB-200</span><span class="tag">PyTorch</span><span class="tag">HPC</span></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="card-visual">🎙️</div>
-          <div class="card-body">
-            <div class="card-kicker">NSF REU</div>
-            <h3>ASR Transfer for Endangered Languages</h3>
-            <p>Trained Wav2Vec2 XLSR-53 models and studied source-language selection with acoustic and linguistic similarity metrics, including ATDS and subword overlap.</p>
-            <div class="tags"><span class="tag">Wav2Vec2</span><span class="tag">ASR</span><span class="tag">Austronesian NLP</span></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="card-visual">🤖</div>
-          <div class="card-body">
-            <div class="card-kicker">RL / Planning</div>
-            <h3>MicroRTS Hybrid RL Agent</h3>
-            <p>Built a hybrid game-playing agent combining tree-search planning with PPO control, reaching a TrueSkill of 33.7 and outperforming several MicroRTS baselines.</p>
-            <div class="tags"><span class="tag">PPO</span><span class="tag">Tree Search</span><span class="tag">MicroRTS</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="research">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">Research</div>
-          <h2>From low-resource NLP to transfer learning.</h2>
+        <div class="hero-links">
+          <a href="#" class="btn btn-dark">↓ Resume</a>
+          <a href="#" class="btn btn-outline">LinkedIn ↗</a>
+          <a href="#" class="btn btn-outline">GitHub ↗</a>
+          <a href="#" class="btn btn-outline">Email</a>
         </div>
       </div>
 
-      <div class="research-list">
-        <article class="research-card reveal">
-          <div>
-            <div class="year">2025–2026</div>
-            <div class="meta">Boston College · Senior Thesis</div>
-          </div>
-          <div>
-            <h3>Machine Translation for Formosan Languages</h3>
-            <p>Advisor: Dr. Emily Prud’hommeaux. Extending prior ASR transfer learning work to machine translation using parallel corpora across the Formosan language group. Running multilingual fine-tuning experiments on Andromeda 2 / Slurm, with a paper under review at ACL Rolling Review.</p>
-            <div class="tags"><span class="tag">NLLB-200</span><span class="tag">HuggingFace</span><span class="tag">Slurm</span><span class="tag">Machine Translation</span></div>
-          </div>
-        </article>
-
-        <article class="research-card reveal">
-          <div>
-            <div class="year">Summer 2025</div>
-            <div class="meta">NSF Formosan Bank Project</div>
-          </div>
-          <div>
-            <h3>ASR for Endangered Formosan Languages</h3>
-            <p>Trained baseline Wav2Vec2 XLSR-53 models on 10-hour Austronesian language datasets. Selected transfer pairs using ATDS, token overlap, subword overlap, and Levenshtein distance; results informed a framework for source-language selection in language revitalization tools.</p>
-            <div class="tags"><span class="tag">Wav2Vec2</span><span class="tag">XLSR-53</span><span class="tag">WER</span><span class="tag">Transfer Learning</span></div>
-          </div>
-        </article>
-
-        <article class="research-card reveal">
-          <div>
-            <div class="year">Summer 2024</div>
-            <div class="meta">University of Houston · NSF REU</div>
-          </div>
-          <div>
-            <h3>Multilingual Toxicity Detection</h3>
-            <p>Advisor: Dr. Rakesh Verma. Fine-tuned XLM-RoBERTa across Spanish, French, Italian, Portuguese, Catalan, and Romanian to study whether linguistic relatedness predicts better cross-lingual transfer in toxicity detection.</p>
-            <div class="tags"><span class="tag">XLM-RoBERTa</span><span class="tag">PyTorch</span><span class="tag">Cross-lingual NLP</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">Projects</div>
-          <h2>Applied ML, robotics, maps, and solvers.</h2>
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="num blue">3.89</div>
+          <div class="label">GPA</div>
+        </div>
+        <div class="stat-card">
+          <div class="num warm">68%</div>
+          <div class="label">WER reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="num green">2×</div>
+          <div class="label">NSF REUs</div>
         </div>
       </div>
 
-      <div class="projects-grid">
-        <article class="project-card mini-card reveal">
-          <div class="card-body">
-            <div class="card-kicker">Robotics</div>
-            <h3>Robot Soccer</h3>
-            <p>Built a ROS-based robot soccer system with perception, control, and live LLM-generated commentary for game-state narration.</p>
-            <div class="tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">OpenCV</span></div>
-          </div>
-        </article>
-
-        <article class="project-card mini-card reveal">
-          <div class="card-body">
-            <div class="card-kicker">NLP</div>
-            <h3>Music Popularity Predictor</h3>
-            <p>Predicted Billboard Hot 100 hits from lyrics using BoW, Word2Vec, stylometric features, and fine-tuned BERT on a decade-stratified dataset.</p>
-            <div class="tags"><span class="tag">BERT</span><span class="tag">Word2Vec</span><span class="tag">scikit-learn</span></div>
-          </div>
-        </article>
-
-        <article class="project-card mini-card reveal">
-          <div class="card-body">
-            <div class="card-kicker">GIS</div>
-            <h3>Datacenter Effects in Virginia</h3>
-            <p>Mapped the relationship between datacenter density, utility bills, and infrastructure exposure across Virginia using public spatial datasets.</p>
-            <div class="tags"><span class="tag">ArcGIS</span><span class="tag">Spatial Analysis</span></div>
-          </div>
-        </article>
-
-        <article class="project-card mini-card reveal">
-          <div class="card-body">
-            <div class="card-kicker">Constraint Solving</div>
-            <h3>Domino Pip Solver</h3>
-            <p>Automated NYT Pips puzzle solving by encoding domino placement, cell values, and regional rules as a Z3 constraint satisfaction problem.</p>
-            <div class="tags"><span class="tag">Z3</span><span class="tag">Python</span><span class="tag">CSP</span></div>
-          </div>
-        </article>
-
-        <article class="project-card mini-card reveal">
-          <div class="card-body">
-            <div class="card-kicker">RL</div>
-            <h3>MicroRTS Hybrid RL Agent</h3>
-            <p>Combined planning and reinforcement learning for real-time strategy gameplay, using PPO with tree-search-informed decision making.</p>
-            <div class="tags"><span class="tag">PyTorch</span><span class="tag">PPO</span><span class="tag">MicroRTS</span></div>
-          </div>
-        </article>
-
-        <article class="project-card mini-card reveal">
-          <div class="card-body">
-            <div class="card-kicker">Creative AI</div>
-            <h3>DailyList / Music Interfaces</h3>
-            <p>Exploring social music apps and interactive audio experiences, including playlist-based daily prompts and browser audio tools.</p>
-            <div class="tags"><span class="tag">JavaScript</span><span class="tag">Tone.js</span><span class="tag">UX</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="two-col">
-        <div class="info-card reveal">
-          <div class="section-label">Education</div>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-date">Fall 2026</div>
-              <div>
-                <h3>Georgia Institute of Technology</h3>
-                <p>MS Computer Science · Specialization: Robotics and Perception</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-date">May 2026</div>
-              <div>
-                <h3>Boston College</h3>
-                <p>BS Computer Science, Minor in Mathematics · GPA 3.89 · Alpha Sigma Nu · Phi Beta Kappa · Dean’s List</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="info-card reveal">
-          <div class="section-label">Skills</div>
-          <div class="skill-cloud">
-            <span class="skill">Python</span><span class="skill">C++</span><span class="skill">JavaScript</span><span class="skill">Java</span>
-            <span class="skill">PyTorch</span><span class="skill">HuggingFace</span><span class="skill">scikit-learn</span><span class="skill">NLLB-200</span>
-            <span class="skill">XLM-R</span><span class="skill">Wav2Vec2</span><span class="skill">BERT</span><span class="skill">ROS2 Jazzy</span>
-            <span class="skill">Gazebo</span><span class="skill">Nav2</span><span class="skill">OpenCV</span><span class="skill">Slurm</span>
-            <span class="skill">Linux</span><span class="skill">ArcGIS</span><span class="skill">Z3</span><span class="skill">MediaPipe</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="info-card reveal">
-        <div class="section-label">Currently</div>
-        <h2>Finishing senior thesis, then heading to Atlanta.</h2>
-        <p style="margin-top: 14px; max-width: 780px;">I’m currently finishing my senior thesis on machine translation for Formosan languages, with a paper under review at ACL Rolling Review. Starting Fall 2026, I’ll be joining Georgia Tech’s MSCS program with a focus on Robotics and Perception.</p>
-        <div class="cta-row" style="margin-top: 24px; margin-bottom: 0;">
-          <a class="btn primary" href="mailto:YOUR_EMAIL_HERE">Get in touch</a>
-          <a class="btn" href="YOUR_LINKEDIN_LINK_HERE" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="page footer-inner">
-      <p>© 2026 Nicholas Hernandez. Built with HTML, CSS, and JavaScript.</p>
-      <p>Last updated: April 2026</p>
     </div>
-  </footer>
 
-  <script>
-    const revealElements = document.querySelectorAll('.reveal');
+    <!-- Education row, directly below profile -->
+    <div id="education" class="two-col fade-up" style="margin-top:28px;">
+      <div class="edu-card">
+        <div class="edu-icon">🐝</div>
+        <div>
+          <div class="edu-school">Georgia Tech</div>
+          <div class="edu-degree">MS Computer Science · Machine Learning</div>
+          <div class="chips">
+            <span class="chip chip-blue">Starting Fall 2026</span>
+            <span class="chip chip-gray">Atlanta, GA</span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🦅</div>
+        <div>
+          <div class="edu-school">Boston College</div>
+          <div class="edu-degree">BS CS · Minor in Mathematics · May 2026</div>
+          <div class="chips">
+            <span class="chip chip-blue">GPA 3.89</span>
+            <span class="chip chip-gray">Dean's List</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="page">
+    <div class="sec-label">Research</div>
+    <h2>Low-Resource Language Systems</h2>
+
+    <div class="research-list">
+
+      <div class="r-card fade-up">
+        <div>
+          <div class="r-top">
+            <span class="badge b-blue">Senior Thesis</span>
+            <span class="badge b-green">ACL Rolling Review</span>
+            <span class="badge b-gray">2025–2026</span>
+          </div>
+          <h3>Machine Translation for Formosan Languages</h3>
+          <div class="r-advisor">Dr. Emily Prud'hommeaux · Boston College</div>
+          <p class="r-desc">Fine-tuning Meta's NLLB-200 for endangered Formosan indigenous languages (Amis, Atayal, Seediq). Experiments cover custom language ID tokens, supplementary-language augmentation, and FLORES cousin-language transfer. Running at scale on Andromeda 2 HPC (Slurm).</p>
+          <div class="tags">
+            <span class="tag">NLLB-200</span><span class="tag">HuggingFace</span><span class="tag">PyTorch</span><span class="tag">Slurm</span><span class="tag">Transfer Learning</span>
+          </div>
+        </div>
+        <div class="r-stats">
+          <div class="r-stat"><div class="n">3+</div><div class="l">Languages</div></div>
+          <div class="r-stat"><div class="n" style="color:var(--accent-green)">ACL</div><div class="l">Under Review</div></div>
+        </div>
+      </div>
+
+      <div class="r-card fade-up">
+        <div>
+          <div class="r-top">
+            <span class="badge b-warm">NSF REU</span>
+            <span class="badge b-gray">Summer 2025</span>
+          </div>
+          <h3>ASR for Endangered Formosan Languages</h3>
+          <div class="r-advisor">Dr. Emily Prud'hommeaux · NSF Formosan Bank Project</div>
+          <p class="r-desc">Trained Wav2Vec2 XLSR-53 on 10-hour datasets for Austronesian languages (Amis, Paiwan). Used ATDS, token overlap, subword overlap, and Levenshtein distance to identify optimal source-target pairs. Extended to distant languages (English, Hungarian, Swahili) — unrelated languages with high ATDS scores cut WER by up to 68%. Provides a strategic framework for source language selection in revitalization ASR.</p>
+          <div class="tags">
+            <span class="tag">Wav2Vec2</span><span class="tag">XLSR-53</span><span class="tag">ATDS</span><span class="tag">PyTorch</span><span class="tag">Austronesian NLP</span>
+          </div>
+        </div>
+        <div class="r-stats">
+          <div class="r-stat"><div class="n warm">68%</div><div class="l">WER reduction</div></div>
+          <div class="r-stat"><div class="n">10h</div><div class="l">per language</div></div>
+        </div>
+      </div>
+
+      <div class="r-card fade-up">
+        <div>
+          <div class="r-top">
+            <span class="badge b-warm">NSF REU</span>
+            <span class="badge b-gray">Summer 2024</span>
+          </div>
+          <h3>Multilingual Toxicity Detection</h3>
+          <div class="r-advisor">Dr. Rakesh Verma · University of Houston</div>
+          <p class="r-desc">Fine-tuned XLM-RoBERTa for toxicity detection across six Romance languages. Tested whether language subfamily proximity improves cross-lingual transfer. Confirmed transfer potential while surfacing nuanced questions about linguistic similarity and model behavior.</p>
+          <div class="tags">
+            <span class="tag">XLM-RoBERTa</span><span class="tag">PyTorch</span><span class="tag">HuggingFace</span><span class="tag">6 Languages</span>
+          </div>
+        </div>
+        <div class="r-stats">
+          <div class="r-stat"><div class="n">6</div><div class="l">Languages</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="page">
+    <div class="sec-label">Projects</div>
+    <h2>Selected Work</h2>
+
+    <div class="projects-grid">
+
+      <!-- MicroRTS -->
+      <div class="p-card fade-up">
+        <div class="p-photo" id="proj0Slot">
+          <div class="p-photo-placeholder" id="proj0Ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Add Screenshot</span>
+          </div>
+          <img id="proj0Img" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="">
+          <input type="file" accept="image/*" data-proj="0">
+        </div>
+        <div class="p-body">
+          <div class="p-course">ML Projects Course · w/ 3 collaborators</div>
+          <h3>MicroRTS Hybrid RL Agent</h3>
+          <div class="ts-mini">
+            <div class="ts-title">TrueSkill Comparison</div>
+            <div class="ts-row">
+              <span class="ts-lbl" style="color:var(--accent)">Ours</span>
+              <div class="ts-bar"><div class="ts-fill us" style="width:100%"></div></div>
+              <span class="ts-val" style="color:var(--accent)">33.7</span>
+            </div>
+            <div class="ts-row">
+              <span class="ts-lbl">CoacAI</span>
+              <div class="ts-bar"><div class="ts-fill them" style="width:99%"></div></div>
+              <span class="ts-val">33.4</span>
+            </div>
+            <div class="ts-row">
+              <span class="ts-lbl">Baseline</span>
+              <div class="ts-bar"><div class="ts-fill them" style="width:80%"></div></div>
+              <span class="ts-val">~27</span>
+            </div>
+          </div>
+          <p>Hybrid PPO + tree-search agent for MicroRTS. Outperformed all provided baselines including the strongest, CoacAI. Integrated planning showed faster early convergence.</p>
+          <div class="tags"><span class="tag">PPO</span><span class="tag">Tree Search</span><span class="tag">PyTorch</span><span class="tag">RL</span></div>
+        </div>
+      </div>
+
+      <!-- Music -->
+      <div class="p-card fade-up">
+        <div class="p-photo" id="proj1Slot">
+          <div class="p-photo-placeholder" id="proj1Ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Add Screenshot</span>
+          </div>
+          <img id="proj1Img" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="">
+          <input type="file" accept="image/*" data-proj="1">
+        </div>
+        <div class="p-body">
+          <div class="p-course">NLP Course</div>
+          <h3>Music Popularity Predictor</h3>
+          <p>Binary classification of Billboard Hot 100 hits from lyrics. Compared BoW, Word2Vec, stylometrics, and fine-tuned BERT. Decade-stratified dataset of ~90K songs via LyricsGenius + Spotify.</p>
+          <div class="tags"><span class="tag">BERT</span><span class="tag">Word2Vec</span><span class="tag">scikit-learn</span><span class="tag">90K songs</span></div>
+        </div>
+      </div>
+
+      <!-- Pip Solver -->
+      <div class="p-card fade-up">
+        <div class="p-photo" id="proj2Slot">
+          <div class="p-photo-placeholder" id="proj2Ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Add Screenshot</span>
+          </div>
+          <img id="proj2Img" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="">
+          <input type="file" accept="image/*" data-proj="2">
+        </div>
+        <div class="p-body">
+          <div class="p-course">Logic & Computation · w/ Kai Gowers</div>
+          <h3>NYT Pips Puzzle Solver</h3>
+          <p>Automated Z3-based solver for NYT Pips. Boolean placement vars per domino/edge/orientation, integer cell values (0–6), regional constraints (sum_lt, all_eq, all_diff).</p>
+          <div class="tags"><span class="tag">Z3</span><span class="tag">CSP</span><span class="tag">Python</span><span class="tag">Pygame</span></div>
+        </div>
+      </div>
+
+      <!-- Robot Soccer -->
+      <div class="p-card fade-up">
+        <div class="p-photo" id="proj3Slot">
+          <div class="p-photo-placeholder" id="proj3Ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Add Screenshot</span>
+          </div>
+          <img id="proj3Img" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="">
+          <input type="file" accept="image/*" data-proj="3">
+        </div>
+        <div class="p-body">
+          <div class="p-course">Intro Robotics Course</div>
+          <h3>Robot Soccer Referee</h3>
+          <p>Autonomous referee system with CV ball detection, automated scorekeeping, and real-time AI commentary via Claude API with text-to-speech output.</p>
+          <div class="tags"><span class="tag">OpenCV</span><span class="tag">Claude API</span><span class="tag">pyttsx3</span><span class="tag">Python</span></div>
+        </div>
+      </div>
+
+      <!-- ArcGIS -->
+      <div class="p-card fade-up">
+        <div class="p-photo" id="proj4Slot">
+          <div class="p-photo-placeholder" id="proj4Ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Add Screenshot</span>
+          </div>
+          <img id="proj4Img" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="">
+          <input type="file" accept="image/*" data-proj="4">
+        </div>
+        <div class="p-body">
+          <div class="p-course">GIS Course</div>
+          <h3>Datacenters & Utility Bills in Virginia</h3>
+          <p>Spatial analysis mapping the correlation between datacenter density and residential utility costs across Virginia counties using public infrastructure datasets.</p>
+          <div class="tags"><span class="tag">ArcGIS</span><span class="tag">GIS</span><span class="tag">Spatial Analysis</span></div>
+        </div>
+      </div>
+
+      <!-- Face Synth -->
+      <div class="p-card fade-up">
+        <div class="p-photo" id="proj5Slot">
+          <div class="p-photo-placeholder" id="proj5Ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Add Screenshot</span>
+          </div>
+          <img id="proj5Img" src="" style="display:none;width:100%;height:100%;object-fit:cover;" alt="">
+          <input type="file" accept="image/*" data-proj="5">
+        </div>
+        <div class="p-body">
+          <div class="p-course">Creative Coding</div>
+          <h3>Face-Reactive Music Synthesizer</h3>
+          <p>Real-time facial landmarks mapped to synthesizer parameters. Live browser-based audio synthesis modulated by facial expressions via webcam.</p>
+          <div class="tags"><span class="tag">MediaPipe</span><span class="tag">Tone.js</span><span class="tag">JavaScript</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS + EDU + CURRENTLY in one compact section -->
+<section id="skills">
+  <div class="page">
+    <div class="sec-label">Skills & Education</div>
+    <h2>Stack & Background</h2>
+
+    <div class="skills-grid fade-up" style="margin-bottom:28px;">
+      <div class="sk-group">
+        <div class="sk-title">Languages</div>
+        <ul class="sk-list">
+          <li>Python</li><li>C++</li><li>JavaScript</li><li>Java</li>
+        </ul>
+      </div>
+      <div class="sk-group">
+        <div class="sk-title">ML / NLP</div>
+        <ul class="sk-list">
+          <li>PyTorch</li><li>HuggingFace</li><li>NLLB-200</li><li>XLM-RoBERTa</li><li>Wav2Vec2</li><li>BERT</li><li>scikit-learn</li>
+        </ul>
+      </div>
+      <div class="sk-group">
+        <div class="sk-title">Robotics</div>
+        <ul class="sk-list">
+          <li>ROS2 Jazzy</li><li>Gazebo</li><li>Nav2</li><li>OpenCV</li><li>TurtleBot3</li>
+        </ul>
+      </div>
+      <div class="sk-group">
+        <div class="sk-title">Tools & Infra</div>
+        <ul class="sk-list">
+          <li>Git</li><li>Slurm / HPC</li><li>Linux</li><li>NumPy / Pandas</li><li>ArcGIS</li><li>Z3</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CURRENTLY -->
+<section>
+  <div class="page">
+    <div class="sec-label">Now</div>
+    <h2>Currently Working On</h2>
+    <div class="now-grid">
+      <div class="now-card fade-up">
+        <div class="now-dot"></div>
+        <h3>Senior Thesis</h3>
+        <p>Finishing MT experiments for Formosan languages. Paper submitted to ACL Rolling Review.</p>
+      </div>
+      <div class="now-card fade-up">
+        <div class="now-dot"></div>
+        <h3>Robotics Prep</h3>
+        <p>Building perception portfolio — YOLOv8 + ROS2, open-vocabulary localization with Grounding DINO.</p>
+      </div>
+      <div class="now-card fade-up">
+        <div class="now-dot"></div>
+        <h3>Learning</h3>
+        <p>3D computer vision, point cloud processing, sensor fusion, and C++ for robotics systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Nicholas Hernandez</div>
+      <div class="footer-sub">Boston, MA → Atlanta, GA · GT MSCS Fall 2026</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Email</a>
+      <a href="#">LinkedIn ↗</a>
+      <a href="#">GitHub ↗</a>
+      <a href="#">Resume ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Scroll fade ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60);
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ── Profile photo upload ──
+document.getElementById('profileInput').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  const img = document.getElementById('profileImg');
+  img.src = url;
+  img.style.display = 'block';
+  document.getElementById('profilePlaceholder').style.display = 'none';
+});
+
+// ── Project photo uploads ──
+document.querySelectorAll('.p-photo input[type=file]').forEach(input => {
+  input.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const idx = this.dataset.proj;
+    const url = URL.createObjectURL(file);
+    const img = document.getElementById('proj' + idx + 'Img');
+    img.src = url;
+    img.style.display = 'block';
+    document.getElementById('proj' + idx + 'Ph').style.display = 'none';
+  });
+});
+
+// ── CONWAY'S GAME OF LIFE (scrollable background) ──
+let golActive = false;
+let golAnim = null;
+const CELL = 14;
+
+// Simulation runs on a large offscreen grid (3x viewport height worth of rows)
+// The canvas is fixed; we offset drawing based on scroll position
+
+function toggleGOL() {
+  golActive = !golActive;
+  const canvas = document.getElementById('gol-canvas');
+  const btn = document.getElementById('golBtn');
+  const msg = document.getElementById('gol-msg');
+
+  if (golActive) {
+    canvas.classList.add('active');
+    document.body.classList.add('gol-active');
+    btn.textContent = 'STOP IT';
+    btn.style.color = 'var(--accent)';
+    btn.style.borderColor = 'var(--accent)';
+    btn.onmouseover = () => btn.style.background = 'var(--accent-light)';
+    btn.onmouseout = () => btn.style.background = 'transparent';
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 3000);
+    startGOL();
+  } else {
+    canvas.classList.remove('active');
+    document.body.classList.remove('gol-active');
+    btn.textContent = 'CLICK ME';
+    btn.style.color = 'var(--accent-warm)';
+    btn.style.borderColor = 'var(--accent-warm)';
+    btn.onmouseover = () => btn.style.background = '#ede8fb';
+    btn.onmouseout = () => btn.style.background = 'transparent';
+    msg.classList.remove('show');
+    if (golAnim) cancelAnimationFrame(golAnim);
+  }
+}
+
+function startGOL() {
+  const canvas = document.getElementById('gol-canvas');
+  const ctx = canvas.getContext('2d');
+  let VW, VH, cols, rows, grid, next;
+
+  function init() {
+    VW = window.innerWidth;
+    VH = window.innerHeight;
+    canvas.width = VW;
+    canvas.height = VH;
+
+    // Grid spans 4x the viewport height so there's plenty to scroll through
+    cols = Math.floor(VW / CELL);
+    rows = Math.floor((VH * 4) / CELL);
+
+    grid = Array.from({length: rows}, () =>
+      Array.from({length: cols}, () => Math.random() < 0.3 ? 1 : 0)
+    );
+    next = grid.map(r => [...r]);
+  }
+
+  function step() {
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        let n = 0;
+        for (let dr = -1; dr <= 1; dr++)
+          for (let dc = -1; dc <= 1; dc++)
+            if (!(dr === 0 && dc === 0)) {
+              // wrap horizontally, clamp vertically
+              const nc = (c + dc + cols) % cols;
+              const nr = r + dr;
+              if (nr >= 0 && nr < rows) n += grid[nr][nc];
+            }
+        if (grid[r][c] === 1) next[r][c] = (n === 2 || n === 3) ? 1 : 0;
+        else next[r][c] = n === 3 ? 1 : 0;
+      }
+    }
+    [grid, next] = [next, grid];
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, VW, VH);
+
+    // Scroll offset: how many pixels down the page are we?
+    const scrollY = window.scrollY;
+    // Which row of the simulation is at the top of the viewport?
+    const startRow = Math.floor(scrollY / CELL) % rows;
+    // pixel offset within the first cell
+    const offsetY = scrollY % CELL;
+
+    // Draw grid lines
+    ctx.strokeStyle = 'rgba(99,60,220,0.10)';
+    ctx.lineWidth = 0.5;
+    for (let c = 0; c <= cols; c++) {
+      ctx.beginPath(); ctx.moveTo(c * CELL, 0); ctx.lineTo(c * CELL, VH); ctx.stroke();
+    }
+    const visibleRows = Math.ceil((VH + offsetY) / CELL) + 1;
+    for (let i = 0; i <= visibleRows; i++) {
+      const y = i * CELL - offsetY;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(VW, y); ctx.stroke();
+    }
+
+    // Draw cells
+    for (let i = 0; i < visibleRows; i++) {
+      const r = (startRow + i) % rows;
+      const y = i * CELL - offsetY;
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c]) {
+          ctx.fillStyle = 'rgba(99,60,220,0.55)';
+          ctx.fillRect(c * CELL + 1, y + 1, CELL - 2, CELL - 2);
         }
-      });
-    }, { threshold: 0.12 });
+      }
+    }
+  }
 
-    revealElements.forEach((element, index) => {
-      element.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
-      observer.observe(element);
-    });
-  </script>
+  let frame = 0;
+  function loop() {
+    if (!golActive) return;
+    if (frame % 5 === 0) step();
+    draw();
+    frame++;
+    golAnim = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', () => { if (golActive) init(); });
+  init();
+  draw();
+  loop();
+}
+
+</script>
 </body>
 </html>
