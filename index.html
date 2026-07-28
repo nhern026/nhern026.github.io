@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html><head>
+<title>Nicholas Hernandez | Machine Learning &amp; Robotics</title>
+<meta content="Nicholas Hernandez is an incoming Georgia Tech MSCS student focused on machine learning, robot perception, and embodied AI." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<script>window.__resources = {"https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/js/react.production.min.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/js/react-dom.production.min.js"};</script>
+<script src="assets/js/dc-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+
+/* cyrillic */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+</style>
+<style>
+  body{margin:0;background:#0a0b09;color:#e8ece6;font-family:'Space Grotesk',system-ui,sans-serif}
+  a{color:#7dffa8;text-decoration:none}
+  a:hover{color:#b3ffcd;text-decoration:underline}
+  ::selection{background:#1f3d2a;color:#b3ffcd}
+  @keyframes blinkc{0%,100%{opacity:1}50%{opacity:0}}
+  @keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+  @keyframes vu{0%{height:20%}25%{height:75%}50%{height:40%}75%{height:90%}100%{height:20%}}
+</style>
+</helmet>
+<sc-if hint-placeholder-val="{{ false }}" value="{{ showIntro }}">
+<div sc-camel-on-click="{{ enterSite }}" style="position:fixed;inset:0;z-index:100;background:#050604;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:6vh;padding:8vh 8vw;overflow:hidden">
+<div style="font-family:'IBM Plex Mono',monospace">
+<div style="font-size:clamp(20px,2.6vw,34px);color:#e8ece6;letter-spacing:.08em;text-shadow:0 0 10px rgba(232,236,230,.35)">NICHOLAS HERNANDEZ</div>
+<div style="font-size:12px;letter-spacing:.2em;color:#5f9e75;margin-top:8px">NI/CO · 6000</div>
+</div>
+<div ref="{{ trackList }}" style="display:flex;flex-direction:column;gap:26px;font-family:'IBM Plex Mono',monospace"></div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#5f9e75;animation:blinkc 1.3s step-end infinite">CLICK ANYWHERE TO ENTER</div>
+<div style="position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25),rgba(0,0,0,.25) 1px,transparent 1px,transparent 3px)"></div>
+</div>
+</sc-if>
+<canvas ref="{{ golCanvas }}" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.55"></canvas>
+<div style="position:relative;z-index:1">
+<!-- status strip -->
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px clamp(12px,3vw,28px);border-bottom:1px solid #1d221b;font-family:'IBM Plex Mono',monospace;font-size:clamp(9px,2.6vw,12px);letter-spacing:.08em;color:#5f9e75;background:rgba(10,11,9,.92);position:sticky;top:0;backdrop-filter:blur(8px);white-space:nowrap;overflow-x:auto">
+<span style="flex:none">NI/CO · 6000</span>
+<div style="display:flex;gap:clamp(10px,2.4vw,22px)">
+<a href="#education">EDUCATION</a>
+<a href="#about">ABOUT</a>
+<a href="#research">RESEARCH</a>
+<a href="#projects">PROJECTS</a>
+<a href="#contact">CONTACT</a>
+</div>
+<span style="display:flex;align-items:center;gap:7px;flex:none"><span style="width:7px;height:7px;border-radius:50%;background:#3aff6e;box-shadow:0 0 6px #3aff6e"></span>ONLINE</span>
+</div>
+<!-- hero -->
+<header style="max-width:880px;margin:0 auto;padding:110px 32px 70px">
+<div style="display:flex;gap:36px;align-items:flex-end;flex-wrap:wrap">
+<div style="width:148px;height:148px;flex:none;border:1px solid #2c5c3d;border-radius:10px;overflow:hidden;box-shadow:0 0 24px rgba(58,255,110,.12)">
+<img alt="Nicholas Hernandez" src="assets/images/nicholas-hernandez.webp" style="width:100%;height:100%;object-fit:cover;display:block"/>
+</div>
+<div style="min-width:260px;flex:1">
+<h1 style="margin:0 0 8px;font-size:52px;font-weight:600;letter-spacing:-.01em;line-height:1.02">Nicholas Hernandez</h1>
+<p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#7dffa8">incoming ms cs @ georgia tech — computational perception &amp; robotics</p>
+</div>
+</div>
+<p style="max-width:620px;font-size:16.5px;line-height:1.65;color:#aab3a8;margin:30px 0 34px">Hello! I have a research background in low-resource NLP but I'm pivoting toward robotics perception and vision-language-action (VLA) models. I want to bring a low-resource, transfer-learning lens to how robots see, understand, and act in the world.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:13.5px">
+<span style="padding:10px 18px;border:1px solid #2c5c3d;border-radius:8px;background:rgba(58,255,110,.05);color:#7dffa8">nhern026 [at] gmail [dot] com</span>
+<a href="https://github.com/nhern026" rel="noopener" style="padding:10px 18px;border:1px solid #263123;border-radius:8px" target="_blank">./github</a>
+<a href="https://linkedin.com/in/nicholas-hernandez-bc" rel="noopener" style="padding:10px 18px;border:1px solid #263123;border-radius:8px" target="_blank">./linkedin</a>
+<a href="https://letterboxd.com/nhern026/" rel="noopener" style="padding:10px 18px;border:1px solid #263123;border-radius:8px" target="_blank">./letterboxd</a>
+</div>
+</header>
+<!-- education -->
+<section id="education" style="max-width:880px;margin:0 auto;padding:10px 32px 40px">
+<h2 style="margin:0 0 6px;font-size:15px;font-family:'IBM Plex Mono',monospace;letter-spacing:.16em;color:#5f9e75">EDUCATION.SYS</h2>
+<div style="height:1px;background:linear-gradient(90deg,#2c5c3d,transparent);margin-bottom:22px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="border:1px solid #2c5c3d;border-radius:12px;padding:22px 24px;background:linear-gradient(180deg,rgba(58,255,110,.05),rgba(16,19,16,.85))">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7dffa8;margin-bottom:10px">NEXT · FALL 2026</div>
+<div style="font-size:22px;font-weight:600;margin-bottom:4px">Georgia Tech</div>
+<div style="font-size:14.5px;color:#c4ccc1;margin-bottom:2px">MS Computer Science</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8fa38f">Computational Perception &amp; Robotics</div>
+</div>
+<div style="border:1px solid #1d221b;border-radius:12px;padding:22px 24px;background:rgba(16,19,16,.85)">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5f9e75;margin-bottom:10px">BS · MAY 2026</div>
+<div style="font-size:22px;font-weight:600;margin-bottom:4px">Boston College</div>
+<div style="font-size:14.5px;color:#c4ccc1;margin-bottom:2px">BS Computer Science · GPA 3.91</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8fa38f">Summa Cum Laude · Phi Beta Kappa · Alpha Sigma Nu</div>
+</div>
+</div>
+</section>
+<!-- about / console panel -->
+<section id="about" style="max-width:880px;margin:0 auto;padding:30px 32px 60px">
+<div style="border:1px solid #1d221b;border-radius:14px;background:linear-gradient(180deg,#101310,#0c0e0b);box-shadow:0 20px 50px rgba(0,0,0,.45)">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid #1d221b;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5f9e75">
+<span>ABOUT.LOG</span>
+<div style="display:flex;gap:6px">
+<span style="width:9px;height:9px;border-radius:50%;background:#2b382c"></span>
+<span style="width:9px;height:9px;border-radius:50%;background:#2b382c"></span>
+<span style="width:9px;height:9px;border-radius:50%;background:#3aff6e"></span>
+</div>
+</div>
+<div style="padding:26px 24px;display:grid;grid-template-columns:1.4fr 1fr;gap:34px">
+<div>
+<p style="margin:0 0 16px;font-size:15.5px;line-height:1.7;color:#c4ccc1">I graduated Summa Cum Laude and Phi Beta Kappa from Boston College with a BS in Computer Science (GPA 3.91). Most of my research so far has been in NLP for low-resource languages. I've built speech recognition and translation models for Formosan languages, some spoken by only a few thousand people. Working with that little data teaches you a lot about getting models to generalize when there isn't much to learn from, and that's exactly the problem I want to keep chasing in robotics.</p>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:2.1;color:#8fa38f">
+<div><span style="color:#5f9e75">focus:</span> NLP, robotics perception &amp; VLA models</div>
+<div><span style="color:#5f9e75">off-duty:</span> movies (sci-fi/horror) · music (hip-hop/jazz/rock) · BJJ · hiking · baking · photography</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5f9e75;margin-bottom:8px">LANGUAGES</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Python</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">C++</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Java</span>
+</div>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5f9e75;margin-bottom:8px">ML / DEEP LEARNING</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">PyTorch</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">TensorFlow</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Hugging Face</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">scikit-learn</span>
+</div>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5f9e75;margin-bottom:8px">VISION &amp; ROBOTICS</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">OpenCV</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">ROS2</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Gazebo</span>
+</div>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5f9e75;margin-bottom:8px">RESEARCH SPECIALTIES</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Low-Resource Learning</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Transfer Learning</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Sample-Efficient Learning</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Large-Scale/HPC Training</span>
+</div>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5f9e75;margin-bottom:8px">TOOLS &amp; INFRASTRUCTURE</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Git/GitHub</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Slurm</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">Linux</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid #263123;border-radius:6px;color:#c4ccc1">ArcGIS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- research -->
+<section id="research" style="max-width:880px;margin:0 auto;padding:20px 32px 60px">
+<h2 style="margin:0 0 6px;font-size:15px;font-family:'IBM Plex Mono',monospace;letter-spacing:.16em;color:#5f9e75">RESEARCH.LOG</h2>
+<div style="height:1px;background:linear-gradient(90deg,#2c5c3d,transparent);margin-bottom:26px"></div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<article style="display:grid;grid-template-columns:120px 1fr;gap:22px;padding:20px 22px;border:1px solid #1d221b;border-radius:12px;background:rgba(16,19,16,.85)">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f9e75;line-height:1.7">2025–2026<br/>Boston College<br/><span style="color:#ffb454">Senior Honors Thesis</span></div>
+<div>
+<h3 style="margin:0 0 6px;font-size:19px;font-weight:600"><a href="https://github.com/nhern026/bachelorHonorsThesis" rel="noopener" style="color:#e8ece6;text-decoration:underline;text-decoration-color:#2c5c3d;text-underline-offset:4px" target="_blank">Cross-Lingual Transfer Learning for Low-Resource MT <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7dffa8">↗</span></a></h3>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#aab3a8">Advised by Dr. Emily Prud'hommeaux. Fine-tuned NLLB-200 across 14 Formosan languages using FormosanBank corpora; two-stage fine-tuning with triple supplementary languages (Amis, Atayal, Rukai) proved most effective.</p>
+</div>
+</article>
+<article style="display:grid;grid-template-columns:120px 1fr;gap:22px;padding:20px 22px;border:1px solid #1d221b;border-radius:12px;background:rgba(16,19,16,.85)">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f9e75;line-height:1.7">Summer 2025<br/>Boston College</div>
+<div>
+<h3 style="margin:0 0 6px;font-size:19px;font-weight:600">ASR for Low-Resource Formosan Languages <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#ffb454;border:1px solid #4d3a1e;border-radius:5px;padding:2px 7px;vertical-align:middle;margin-left:6px">ACL UNDER REVIEW</span></h3>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#aab3a8">REU with Dr. Prud'hommeaux. Fine-tuned Wav2Vec2/XLSR-53 for 13 languages, reducing WER by up to 68% using cross-linguistic similarity metrics (ATDS) for transfer learning.</p>
+</div>
+</article>
+<article style="display:grid;grid-template-columns:120px 1fr;gap:22px;padding:20px 22px;border:1px solid #1d221b;border-radius:12px;background:rgba(16,19,16,.85)">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f9e75;line-height:1.7">Summer 2024<br/>U. Houston</div>
+<div>
+<h3 style="margin:0 0 6px;font-size:19px;font-weight:600">Cross-Lingual Toxicity Detection</h3>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#aab3a8">NSF REU with Dr. Rakesh Verma's ReDASers team. Built toxicity detection models across Romance language families; created an 85,000+ entry toxicity dataset.</p>
+</div>
+</article>
+</div>
+</section>
+<!-- projects -->
+<section id="projects" style="max-width:880px;margin:0 auto;padding:20px 32px 60px">
+<h2 style="margin:0 0 6px;font-size:15px;font-family:'IBM Plex Mono',monospace;letter-spacing:.16em;color:#5f9e75">PROJECTS.DIR</h2>
+<div style="height:1px;background:linear-gradient(90deg,#2c5c3d,transparent);margin-bottom:26px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<article style="border:1px solid #1d221b;border-radius:12px;overflow:hidden;background:rgba(16,19,16,.85)">
+<div style="aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid #1d221b">
+<img alt="Robot car soccer vision pipeline" decoding="async" loading="lazy" src="assets/images/robo-car-soccer.webp" style="width:100%;height:100%;object-fit:cover;display:block"/>
+</div>
+<div style="padding:16px 18px">
+<h3 style="margin:0 0 6px;font-size:16.5px;font-weight:600">Robo Car Soccer League</h3>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.6;color:#aab3a8">Real-time OpenCV vision pipeline (HSV masking, contour/circularity analysis) tracking a Bluetooth-controlled 2-player robot car match. Pygame scoreboard; Claude API for live commentary.</p>
+<a href="https://github.com/nhern026/roboSoccer" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px" target="_blank">view repo →</a>
+</div>
+</article>
+<article style="border:1px solid #1d221b;border-radius:12px;overflow:hidden;background:rgba(16,19,16,.85)">
+<div style="aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid #1d221b;background:#fff">
+<img alt="Average F1 by model chart" decoding="async" loading="lazy" src="assets/images/song-popularity-chart.webp" style="width:100%;height:100%;object-fit:contain;display:block"/>
+</div>
+<div style="padding:16px 18px">
+<h3 style="margin:0 0 6px;font-size:16.5px;font-weight:600">Song Popularity Prediction</h3>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.6;color:#aab3a8">Predicting song popularity from lyrics across multiple classifiers — Naive Bayes, Decision Tree, KNN, SVM, Logistic Regression, DistilBERT.</p>
+<a href="https://github.com/nk2417/Song-Hit-Prediction-from-Lyrics" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px" target="_blank">view repo →</a>
+</div>
+</article>
+<article style="border:1px solid #1d221b;border-radius:12px;overflow:hidden;background:rgba(16,19,16,.85)">
+<div style="aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid #1d221b;background:#fff">
+<img alt="Pips solver board interface" decoding="async" loading="lazy" src="assets/images/pips-solver.webp" style="width:100%;height:100%;object-fit:cover;display:block"/>
+</div>
+<div style="padding:16px 18px">
+<h3 style="margin:0 0 6px;font-size:16.5px;font-weight:600">NYT Pips Solver <span style="font-size:12px;font-weight:400;color:#8fa38f">· with Kai Gowers</span></h3>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.6;color:#aab3a8">Z3 logical constraint solving to solve any configuration of the NYT "Pips" domino puzzle, with a Pygame interface to visualize and solve boards.</p>
+<a href="https://github.com/Kai-Gowers/Pips-Solver" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px" target="_blank">view repo →</a>
+</div>
+</article>
+<article style="border:1px solid #1d221b;border-radius:12px;overflow:hidden;background:rgba(16,19,16,.85)">
+<div style="aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid #1d221b;background:#000">
+<img alt="MicroRTS agent match" decoding="async" loading="lazy" src="assets/images/microrts-agent.webp" style="width:100%;height:100%;object-fit:contain;display:block"/>
+</div>
+<div style="padding:16px 18px">
+<h3 style="margin:0 0 6px;font-size:16.5px;font-weight:600">MicroRTS Hybrid RL Agent</h3>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.6;color:#aab3a8">Hybrid tree-search + PPO agent for the MicroRTS real-time strategy environment. Achieved a TrueSkill rating of 33.7 vs. baseline CoacAI's 33.4.</p>
+<a href="https://github.com/cgrant73/MicroRTS-Py_Tree_Search" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px" target="_blank">view repo →</a>
+</div>
+</article>
+<article style="border:1px solid #1d221b;border-radius:12px;overflow:hidden;background:rgba(16,19,16,.85);grid-column:span 2">
+<div style="display:grid;grid-template-columns:280px 1fr">
+<div style="overflow:hidden;border-right:1px solid #1d221b;min-height:130px;background:#fff">
+<img alt="GIS data center poster" decoding="async" loading="lazy" src="assets/images/datacenter-poster.webp" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"/>
+</div>
+<div style="padding:16px 18px">
+<h3 style="margin:0 0 6px;font-size:16.5px;font-weight:600">GIS Datacenter Density &amp; Utility Costs</h3>
+<p style="margin:0;font-size:13.5px;line-height:1.6;color:#aab3a8">Poster mapping the geographic density of U.S. data centers against regional utility costs.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- footer / easter egg -->
+<footer id="contact" style="max-width:880px;margin:0 auto;padding:30px 32px 90px">
+<div style="border:1px solid #1d221b;border-radius:14px;padding:30px 28px;background:linear-gradient(180deg,#101310,#0c0e0b);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:#5f9e75;margin-bottom:8px">END OF TRANSMISSION</div>
+<div style="font-size:17px">Please contact me if you want to work or chat — <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#7dffa8">nhern026 [at] gmail [dot] com</span></div>
+</div>
+<button sc-camel-on-click="{{ toggleGol }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.1em;padding:12px 20px;border-radius:8px;border:1px solid #2c5c3d;background:rgba(58,255,110,.06);color:#7dffa8;cursor:pointer" style-hover="background:rgba(58,255,110,.14)">{{ golLabel }}</button>
+</div>
+<div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#4a5a4b">© 2004–2026 Nicholas Hernandez</div>
+</footer>
+</div>
+</x-dc>
+<script data-dc-script="" type="text/x-dc">
+
+class Component extends DCLogic {
+  state = { gol: false, showIntro: true };
+
+  componentDidMount() {
+    this._frame = 0;
+    this._raf = null;
+    this.startIntro();
+  }
+
+  startIntro() {
+    if (this._introStarted || !this._trackList) return;
+    this._introStarted = true;
+    const tracks = ["EDUCATION.SYS", "ABOUT.LOG", "RESEARCH.LOG", "PROJECTS.DIR", "CONTACT.END"];
+    const listEl = this._trackList;
+    const rowCanvases = [];
+    tracks.forEach((t, i) => {
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:32px;opacity:0;transition:opacity .6s";
+      const cv = document.createElement("canvas");
+      cv.style.cssText = "flex:1;height:34px;display:block;min-width:0";
+      const label = document.createElement("div");
+      label.textContent = t;
+      label.style.cssText = "flex:none;width:220px;font-size:clamp(13px,1.4vw,19px);color:#cfd6cc;text-shadow:0 0 8px rgba(207,214,204,.35)";
+      row.appendChild(cv);
+      row.appendChild(label);
+      listEl.appendChild(row);
+      rowCanvases.push(cv);
+      setTimeout(() => {
+        if (this.state.showIntro) row.style.opacity = "1";
+      }, 400 + i * 550);
+    });
+    // size canvases + waveform data
+    const dpr = window.devicePixelRatio || 1;
+    const rows = rowCanvases.map((cv) => {
+      const rect = cv.getBoundingClientRect();
+      cv.width = Math.max(1, rect.width * dpr);
+      cv.height = Math.max(1, rect.height * dpr);
+      const ctx = cv.getContext("2d");
+      ctx.scale(dpr, dpr);
+      const pts = [];
+      let a = 0.15 + Math.random() * 0.2;
+      for (let i = 0; i < 400; i++) {
+        a += (Math.random() - 0.5) * 0.18;
+        a = Math.max(0.05, Math.min(0.9, a));
+        pts.push(a);
+      }
+      return { cv, ctx, W: rect.width, H: rect.height, pts };
+    });
+    const t0 = performance.now();
+    const drawIntro = (now) => {
+      if (!this.state.showIntro) return;
+      const el = (now - t0) / 1000;
+      const barW = 2, gap = 2;
+      rows.forEach((row, r) => {
+        const n = Math.floor(row.W / (barW + gap));
+        const revealed = Math.min(n, Math.floor(((el - 0.4 - r * 0.55) / 2.0) * n));
+        row.ctx.clearRect(0, 0, row.W, row.H);
+        const cy = row.H / 2;
+        for (let i = 0; i < revealed; i++) {
+          const amp = row.pts[i % row.pts.length] * (row.H * 0.48);
+          const flick = 0.75 + 0.25 * Math.random();
+          row.ctx.fillStyle = `rgba(220,228,218,${0.55 * flick})`;
+          row.ctx.fillRect(i * (barW + gap), cy - amp, barW, amp * 2);
+        }
+      });
+      this._introRaf = requestAnimationFrame(drawIntro);
+    };
+    this._introRaf = requestAnimationFrame(drawIntro);
+  }
+
+  initGrid() {
+    const c = this._canvas;
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
+    this._cell = 12;
+    this._cols = Math.ceil(c.width / this._cell);
+    this._rows = Math.ceil(c.height / this._cell);
+    this._grid = Array.from({ length: this._rows }, () =>
+      Array.from({ length: this._cols }, () => (Math.random() < 0.22 ? 1 : 0))
+    );
+    this._next = this._grid.map((r) => [...r]);
+  }
+
+  step() {
+    const { _rows: R, _cols: C, _grid: g, _next: n } = this;
+    for (let r = 0; r < R; r++) {
+      for (let c = 0; c < C; c++) {
+        let s = 0;
+        for (let dr = -1; dr <= 1; dr++)
+          for (let dc = -1; dc <= 1; dc++) {
+            if (!dr && !dc) continue;
+            s += g[(r + dr + R) % R][(c + dc + C) % C];
+          }
+        n[r][c] = g[r][c] ? (s === 2 || s === 3 ? 1 : 0) : s === 3 ? 1 : 0;
+      }
+    }
+    [this._grid, this._next] = [this._next, this._grid];
+  }
+
+  draw() {
+    const c = this._canvas, ctx = c.getContext("2d"), cell = this._cell;
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.fillStyle = "rgba(58,255,110,0.16)";
+    for (let r = 0; r < this._rows; r++)
+      for (let col = 0; col < this._cols; col++)
+        if (this._grid[r][col]) ctx.fillRect(col * cell + 1, r * cell + 1, cell - 2, cell - 2);
+  }
+
+  loop = () => {
+    if (!this.state.gol) return;
+    if (this._frame % 6 === 0) { this.step(); this.draw(); }
+    this._frame++;
+    this._raf = requestAnimationFrame(this.loop);
+  };
+
+  renderVals() {
+    return {
+      showIntro: this.state.showIntro,
+      trackList: (el) => {
+        const had = this._trackList;
+        this._trackList = el;
+        if (el && !had && this.state.showIntro) setTimeout(() => this.startIntro(), 0);
+      },
+      enterSite: () => {
+        if (this._introRaf) cancelAnimationFrame(this._introRaf);
+        this.setState({ showIntro: false });
+      },
+      golCanvas: (el) => { this._canvas = el; },
+      golLabel: this.state.gol ? "HALT LIFE.EXE" : "RUN LIFE.EXE",
+      toggleGol: () => {
+        const on = !this.state.gol;
+        this.setState({ gol: on }, () => {
+          if (on) { this.initGrid(); this.loop(); }
+          else {
+            if (this._raf) cancelAnimationFrame(this._raf);
+            const ctx = this._canvas.getContext("2d");
+            ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+          }
+        });
+      },
+    };
+  }
+}
+
+</script>
+</body></html>

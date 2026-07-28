@@ -1,1 +1,3 @@
-Please go to nhern026.github.io
+# Nicholas Hernandez — Personal Website
+
+Static portfolio site for GitHub Pages.
