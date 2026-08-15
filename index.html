@@ -131,10 +131,6 @@
 
     #about { padding-top:30px; }
     .about-panel { border-radius:14px; background:linear-gradient(180deg,var(--panel),var(--panel-2)); box-shadow:0 20px 50px rgba(0,0,0,.45); }
-    .panel-head { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em; color:var(--green-dim); }
-    .traffic { display:flex; gap:6px; }
-    .traffic span { width:9px; height:9px; border-radius:50%; background:#2b382c; }
-    .traffic span:last-child { background:var(--green-bright); }
     .about-body { padding:26px 24px; display:grid; grid-template-columns:1.4fr 1fr; gap:34px; }
     .about-copy { margin:0 0 16px; font-size:15.5px; line-height:1.7; color:#c4ccc1; }
     .about-meta { font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:2.1; color:var(--muted-2); }
@@ -281,12 +277,9 @@
     </section>
 
     <section id="about" style="padding-bottom:60px">
+      <h2 class="section-title">ABOUT.LOG</h2>
+      <div class="section-rule" style="margin-bottom:22px"></div>
       <div class="about-panel">
-        <div class="panel-head">
-          <span>ABOUT.LOG</span>
-          <div class="traffic"><span></span><span></span><span></span></div>
-        </div>
-
         <div class="about-body">
           <div>
             <p class="about-copy">I graduated Summa Cum Laude and Phi Beta Kappa from Boston College with a BS in Computer Science (GPA 3.91). Most of my research so far has been in NLP for low-resource languages. I've built speech recognition and translation models for Formosan languages, some spoken by only a few thousand people. Working on low-resource languages got me interested in how models can still learn and generalize when data is limited, which is something I’d like to explore more in robotics.</p>
