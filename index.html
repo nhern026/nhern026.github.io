@@ -85,7 +85,7 @@
     }
 
     .hero, section, footer { max-width: 880px; margin: 0 auto; }
-    .hero { padding: 110px 32px 70px; }
+    .hero { padding: 64px 32px 40px; }
     section { padding: 20px 32px 60px; }
 
     .hero-top { display:flex; gap:36px; align-items:flex-end; flex-wrap:wrap; }
@@ -101,9 +101,8 @@
     .portrait img { width:100%; height:100%; object-fit:cover; display:block; }
     h1 { margin:0 0 8px; font-size:52px; font-weight:600; letter-spacing:-.01em; line-height:1.02; }
     .hero-subtitle { margin:0; font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--green); }
-    .hero-copy { max-width:670px; font-size:16.5px; line-height:1.65; color:var(--muted); margin:30px 0 34px; }
 
-    .button-row { display:flex; gap:12px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:13.5px; }
+    .button-row { margin-top:30px; display:flex; gap:12px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:13.5px; }
     .chip, .button-link {
       padding:10px 18px;
       border:1px solid #263123;
@@ -129,7 +128,7 @@
     .edu-degree { font-size:14.5px; color:#c4ccc1; margin-bottom:2px; }
     .edu-detail { font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--muted-2); }
 
-    #about { padding-top:30px; }
+    #about { padding-top:10px; }
     .about-panel { border-radius:14px; background:linear-gradient(180deg,var(--panel),var(--panel-2)); box-shadow:0 20px 50px rgba(0,0,0,.45); }
     .about-body { padding:26px 24px; display:grid; grid-template-columns:1.4fr 1fr; gap:34px; }
     .about-copy { margin:0 0 16px; font-size:15.5px; line-height:1.7; color:#c4ccc1; }
@@ -147,7 +146,6 @@
     .research-meta .accent { color:var(--orange); }
     .research-card h3 { margin:0 0 6px; font-size:19px; font-weight:600; }
     .research-card p { margin:0; font-size:14.5px; line-height:1.65; color:var(--muted); }
-    .badge { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--orange); border:1px solid #4d3a1e; border-radius:5px; padding:2px 7px; vertical-align:middle; margin-left:6px; }
 
     .projects-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .project-card { overflow:hidden; }
@@ -227,8 +225,8 @@
     <div class="status-strip">
       <span style="flex:none">NI/CO · 6000</span>
       <div class="nav-links">
-        <a href="#education">EDUCATION</a>
         <a href="#about">ABOUT</a>
+        <a href="#education">EDUCATION</a>
         <a href="#research">RESEARCH</a>
         <a href="#projects">PROJECTS</a>
         <a href="#contact">CONTACT</a>
@@ -243,11 +241,9 @@
         </div>
         <div style="min-width:260px;flex:1">
           <h1>Nicholas Hernandez</h1>
-          <p class="hero-subtitle">ms cs @ georgia tech — computational perception &amp; robotics</p>
+          <p class="hero-subtitle">research engineer @ gt pair lab — ms cs, computational perception &amp; robotics</p>
         </div>
       </div>
-
-      <p class="hero-copy">I have a research background in low-resource machine learning and am now focusing on machine learning for robotics, computer vision, and perception. I'm especially interested in how transfer learning and generalization can help robots learn effectively from limited data.</p>
 
       <div class="button-row">
         <span class="chip">nhern026 [at] gmail [dot] com</span>
@@ -257,32 +253,13 @@
       </div>
     </header>
 
-    <section id="education" style="padding-top:10px;padding-bottom:40px">
-      <h2 class="section-title">EDUCATION.SYS</h2>
-      <div class="section-rule" style="margin-bottom:22px"></div>
-      <div class="education-grid">
-        <div class="edu-card">
-          <div class="eyebrow">MS · EXPECTED MAY 2028</div>
-          <div class="edu-school">Georgia Tech</div>
-          <div class="edu-degree">MS Computer Science</div>
-          <div class="edu-detail">Computational Perception &amp; Robotics</div>
-        </div>
-        <div class="edu-card">
-          <div class="eyebrow">BS · MAY 2026</div>
-          <div class="edu-school">Boston College</div>
-          <div class="edu-degree">BS Computer Science · GPA 3.91</div>
-          <div class="edu-detail">Summa Cum Laude · Phi Beta Kappa · Alpha Sigma Nu</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" style="padding-bottom:60px">
+    <section id="about" style="padding-bottom:50px">
       <h2 class="section-title">ABOUT.LOG</h2>
       <div class="section-rule" style="margin-bottom:22px"></div>
       <div class="about-panel">
         <div class="about-body">
           <div>
-            <p class="about-copy">I graduated Summa Cum Laude and Phi Beta Kappa from Boston College with a BS in Computer Science (GPA 3.91). Most of my research so far has been in NLP for low-resource languages. I've built speech recognition and translation models for Formosan languages, some spoken by only a few thousand people. Working on low-resource languages got me interested in how models can still learn and generalize when data is limited, which is something I’d like to explore more in robotics.</p>
+            <p class="about-copy">I’m an incoming research engineer in the PAIR lab at Georgia Tech, where I will work on evaluation and benchmarking for robot foundation models. Most of my research before that was in NLP for low-resource languages. I’ve built speech recognition and translation models for Formosan languages, some spoken by only a few thousand people. Working on low-resource languages got me interested in how models can still learn and generalize when data is limited, which is something I’d like to explore more in robotics.</p>
             <div class="about-meta">
               <div><span class="label">interests:</span> machine learning, robot perception, computer vision &amp; embodied AI</div>
               <div><span class="label">off-duty:</span> movies (sci-fi/horror) · music (hip-hop/jazz/rock) · BJJ · hiking · baking · photography</div>
@@ -325,6 +302,25 @@
       </div>
     </section>
 
+    <section id="education" style="padding-bottom:50px">
+      <h2 class="section-title">EDUCATION.SYS</h2>
+      <div class="section-rule" style="margin-bottom:22px"></div>
+      <div class="education-grid">
+        <div class="edu-card">
+          <div class="eyebrow">MS · EXPECTED MAY 2028</div>
+          <div class="edu-school">Georgia Tech</div>
+          <div class="edu-degree">MS Computer Science</div>
+          <div class="edu-detail">Computational Perception &amp; Robotics</div>
+        </div>
+        <div class="edu-card">
+          <div class="eyebrow">BS · MAY 2026</div>
+          <div class="edu-school">Boston College</div>
+          <div class="edu-degree">BS Computer Science · GPA 3.91</div>
+          <div class="edu-detail">Summa Cum Laude · Phi Beta Kappa · Alpha Sigma Nu</div>
+        </div>
+      </div>
+    </section>
+
     <section id="research">
       <h2 class="section-title">RESEARCH.LOG</h2>
       <div class="section-rule" style="margin-bottom:26px"></div>
@@ -333,15 +329,15 @@
           <div class="research-meta">2025–2026<br />Boston College<br /><span class="accent">Senior Honors Thesis</span></div>
           <div>
             <h3><a href="https://github.com/nhern026/bachelorHonorsThesis" rel="noopener" style="color:#e8ece6;text-decoration:underline;text-decoration-color:#2c5c3d;text-underline-offset:4px" target="_blank">Cross-Lingual Transfer Learning for Low-Resource MT <span class="mono" style="font-size:13px;color:#7dffa8">↗</span></a></h3>
-            <p>Advised by Dr. Emily Prud'hommeaux. Fine-tuned NLLB-200 across 14 Formosan languages using FormosanBank corpora; two-stage fine-tuning with triple supplementary languages (Amis, Atayal, Rukai) proved most effective.</p>
+            <p>Advised by Dr. Emily Prud'hommeaux. Fine-tuned NLLB-200 across 14 Formosan languages using FormosanBank corpora; two-stage fine-tuning with triple supplementary languages (Amis, Atayal, Rukai) proved most effective, improving FOR→EN BLEU by 50–79% for the four lowest-resource languages.</p>
           </div>
         </article>
 
         <article class="research-card">
-          <div class="research-meta">2025–2026<br />Boston College</div>
+          <div class="research-meta">Summer 2025<br />Boston College</div>
           <div>
-            <h3>ASR for Low-Resource Formosan Languages <span class="badge">ACL UNDER REVIEW</span></h3>
-            <p>REU with Dr. Prud'hommeaux. Fine-tuned Wav2Vec2/XLSR-53 for 13 languages, reducing WER by up to 68% using cross-linguistic similarity metrics (ATDS) for transfer learning.</p>
+            <h3>ASR for Low-Resource Formosan Languages</h3>
+            <p>REU with Dr. Prud'hommeaux. Fine-tuned Wav2Vec2/XLSR-53 for 13 languages, reducing WER by up to 68% using cross-linguistic similarity metrics (Token Overlap) for transfer learning.</p>
           </div>
         </article>
 
@@ -350,6 +346,20 @@
           <div>
             <h3>Cross-Lingual Toxicity Detection</h3>
             <p>NSF REU with Dr. Rakesh Verma's ReDASers team. Supported XLM-RoBERTa experiments on cross-lingual toxicity detection and built an 85,000+ example Romance-language dataset.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2 class="section-title">PUBLICATIONS.BIB</h2>
+      <div class="section-rule" style="margin-bottom:26px"></div>
+      <div class="research-list">
+        <article class="research-card">
+          <div class="research-meta">EMNLP 2026<br />Main Conference<br /><span class="accent">Accepted</span></div>
+          <div>
+            <h3>A Family Affair: Counterintuitive Transfer Effects in ASR for Endangered Languages</h3>
+            <p>Prud'hommeaux, E., Scheppat, H., <span style="color:#e8ece6;font-weight:600">Hernandez, N.</span>, &amp; Le Ferrand, E.</p>
           </div>
         </article>
       </div>
@@ -447,7 +457,7 @@
       introOverlay.style.display = 'flex';
       introOverlay.setAttribute('aria-hidden', 'false');
 
-      const tracks = ['EDUCATION.SYS', 'ABOUT.LOG', 'RESEARCH.LOG', 'PROJECTS.DIR', 'CONTACT.END'];
+      const tracks = ['ABOUT.LOG', 'EDUCATION.SYS', 'RESEARCH.LOG', 'PUBLICATIONS.BIB', 'PROJECTS.DIR', 'CONTACT.END'];
       const rows = [];
 
       tracks.forEach((name, i) => {
