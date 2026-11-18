@@ -146,6 +146,11 @@
     .research-meta .accent { color:var(--orange); }
     .research-card h3 { margin:0 0 6px; font-size:19px; font-weight:600; }
     .research-card p { margin:0; font-size:14.5px; line-height:1.65; color:var(--muted); }
+    .research-media { margin-top:14px; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .research-media video { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; background:#000; }
+
+    /* Media slots stay hidden until their file exists. See MEDIA_TODO.md. */
+    .media-pending { display:none; }
 
     .projects-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .project-card { overflow:hidden; }
@@ -171,7 +176,7 @@
     .copyright { text-align:center; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#4a5a4b; }
 
     /* -------------------------------------------------------------
-       INTRO SCREEN — kept for easy restoration, but disabled.
+       INTRO SCREEN: kept for easy restoration, but disabled.
        To bring it back, set ENABLE_INTRO = true in the script below.
        ------------------------------------------------------------- */
     #intro-overlay {
@@ -241,7 +246,7 @@
         </div>
         <div style="min-width:260px;flex:1">
           <h1>Nicholas Hernandez</h1>
-          <p class="hero-subtitle">ms cs, machine learning</p>
+          <p class="hero-subtitle">ms cs, robotics</p>
         </div>
       </div>
 
@@ -259,7 +264,7 @@
       <div class="about-panel">
         <div class="about-body">
           <div>
-            <p class="about-copy">I’m a research engineer in the PAIR lab at Georgia Tech, where I work on evaluation and benchmarking for robot foundation models. Most of my research before that was in NLP for low-resource languages. I’ve built speech recognition and translation models for Formosan languages, some spoken by only a few thousand people. Working on low-resource languages got me interested in how models can still learn and generalize when data is limited, which is something I’d like to explore more in robotics.</p>
+            <p class="about-copy">I love the futures told about in sci-fi stories. I love them so much so that I want to live my life working towards building them! I’m currently a research engineer in the PAIR lab at Georgia Tech, building toward automated wet labs and helping my labmates get their experiments running on real robots.</p>
             <div class="about-meta">
               <div><span class="label">interests:</span> machine learning, robot perception, computer vision, &amp; embodied AI</div>
               <div><span class="label">off-duty:</span> movies (sci-fi/horror) · music (hip-hop/jazz/rock) · BJJ · hiking · baking · photography</div>
@@ -283,7 +288,6 @@
                 <span class="tag">scikit-learn</span>
                 <span class="tag">NumPy</span>
                 <span class="tag">Pandas</span>
-                <span class="tag">ROS2</span>
                 <span class="tag">OpenCV</span>
               </div>
             </div>
@@ -310,7 +314,7 @@
           <div class="eyebrow">MS · EXPECTED MAY 2028</div>
           <div class="edu-school">Georgia Tech</div>
           <div class="edu-degree">MS Computer Science</div>
-          <div class="edu-detail">Machine Learning</div>
+          <div class="edu-detail">Computational Perception and Robotics</div>
         </div>
         <div class="edu-card">
           <div class="eyebrow">BS · MAY 2026</div>
@@ -326,18 +330,22 @@
       <div class="section-rule" style="margin-bottom:26px"></div>
       <div class="research-list">
         <article class="research-card">
-          <div class="research-meta">Fall 2026–Present<br />Georgia Tech<br /><span class="accent">PAIR Lab</span></div>
+          <div class="research-meta">Fall 2026–Present<br />Georgia Tech<br />PAIR Lab</div>
           <div>
-            <h3>Robot Foundation Model Evaluation &amp; VR Teleoperation</h3>
-            <p>Advised by Dr. Animesh Garg. Extended a Meta Quest 3 VR teleoperation system for two 6-DOF YAM arms with joystick wrist control and multi-task recording, now used by other lab members; collected 500+ demonstrations across 10 manipulation tasks. Fine-tuned single- and multi-task policies with XPolicyLab over 300 real-robot trials — on one hour of demos per task, the multi-task policy succeeded in 59/100 trials vs. 53/100 single-task and 35/100 for zero-shot GPT-Sol 6.1.</p>
+            <h3>Automating Wet Labs with Robot Foundation Models &amp; Agentic Systems</h3>
+            <p>Advised by Dr. Animesh Garg. Working toward lab experiments that run with less and less human involvement, by evaluating what today’s robot foundation models can reliably do and designing agentic systems that coordinate the work around those limits.</p>
+            <!-- TODO: add yam_policy.mp4 + yam_policy_poster.jpg, then remove media-pending -->
+            <div class="research-media media-pending">
+              <video autoplay muted loop playsinline preload="none" poster="assets/robot/yam_policy_poster.jpg" src="assets/robot/yam_policy.mp4"></video>
+            </div>
           </div>
         </article>
 
         <article class="research-card">
-          <div class="research-meta">2025–2026<br />Boston College<br /><span class="accent">Senior Honors Thesis</span></div>
+          <div class="research-meta">2025–2026<br />Boston College<br />Senior Honors Thesis</div>
           <div>
             <h3><a href="https://github.com/nhern026/bachelorHonorsThesis" rel="noopener" style="color:#e8ece6;text-decoration:underline;text-decoration-color:#2c5c3d;text-underline-offset:4px" target="_blank">Cross-Lingual Transfer Learning for Low-Resource MT <span class="mono" style="font-size:13px;color:#7dffa8">↗</span></a></h3>
-            <p>Advised by Dr. Emily Prud'hommeaux. Fine-tuned NLLB-200 across 14 Formosan languages using FormosanBank corpora; two-stage fine-tuning with triple supplementary languages (Amis, Atayal, Rukai) proved most effective, improving FOR→EN BLEU by 50–79% for the four lowest-resource languages.</p>
+            <p>Advised by Dr. Emily Prud'hommeaux. Machine translation for 14 Formosan languages, asking how much a language with almost no training data can borrow from its better-resourced relatives.</p>
           </div>
         </article>
 
@@ -345,7 +353,7 @@
           <div class="research-meta">Summer 2025<br />Boston College</div>
           <div>
             <h3>ASR for Low-Resource Formosan Languages</h3>
-            <p>REU with Dr. Prud'hommeaux. Fine-tuned Wav2Vec2/XLSR-53 for 13 languages, reducing WER by up to 68% using cross-linguistic similarity metrics (Token Overlap) for transfer learning.</p>
+            <p>REU with Dr. Prud'hommeaux. Speech recognition for 13 endangered languages, studying which donor language to transfer from when the target language has very little audio.</p>
           </div>
         </article>
 
@@ -353,7 +361,7 @@
           <div class="research-meta">Summer 2024<br />U. Houston</div>
           <div>
             <h3>Cross-Lingual Toxicity Detection</h3>
-            <p>NSF REU with Dr. Rakesh Verma's ReDASers team. Supported XLM-RoBERTa experiments on cross-lingual toxicity detection and built an 85,000+ example Romance-language dataset.</p>
+            <p>NSF REU with Dr. Rakesh Verma's ReDASers team. Toxicity detection across Romance languages, testing how well a model trained in one language carries over to others.</p>
           </div>
         </article>
       </div>
@@ -372,10 +380,10 @@
         </article>
 
         <article class="research-card">
-          <div class="research-meta">2026<br /><span class="accent">Submitted</span></div>
+          <div class="research-meta">2026<br /><span class="accent">In submission</span></div>
           <div>
-            <h3>General-Purpose, Collaborative Robots for Autonomous Materials Research</h3>
-            <p>Wnuk, A., Ozmen, E., Seshadri, S., Rakshit, U., Kohli, N., Long, L., <span style="color:#e8ece6;font-weight:600">Hernandez, N.</span>, Qiu, T., Kousik, S., Losego, M., &amp; Garg, A.</p>
+            <h3>What Happens in a Materials Lab? A Dataset and Analysis of Materials Lab Work for Enabling a Generalized Robot Lab Assistant</h3>
+            <p>Wnuk, A., Long, L., Seshadri, S., Rakshit, U., Kohli, N., <span style="color:#e8ece6;font-weight:600">Hernandez, N.</span>, Ozmen, E., Losego, M., Kousik, S., &amp; Garg, A.</p>
           </div>
         </article>
       </div>
@@ -386,6 +394,23 @@
       <div class="section-rule" style="margin-bottom:26px"></div>
 
       <div class="projects-grid">
+        <article class="project-card">
+          <!-- TODO: add so101.jpg, then remove media-pending -->
+          <div class="project-image media-pending">
+            <img alt="SO-101 leader and follower arms" loading="lazy" decoding="async" src="assets/robot/so101.jpg" />
+          </div>
+          <div class="project-body">
+            <h3>SO-101 Robot Learning <span style="font-size:12px;font-weight:400;color:#8fa38f">· Fall 2026</span></h3>
+            <p>Configured and calibrated paired SO-101 leader/follower arms with multi-camera LeRobot teleoperation, then collected demos, trained an ACT (action chunking) imitation learning policy from scratch, and deployed it on hardware.</p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">LeRobot</span>
+              <span class="tag">Hugging Face</span>
+              <span class="tag">OpenCV</span>
+            </div>
+          </div>
+        </article>
+
         <article class="project-card">
           <div class="project-image">
             <img alt="Robot car soccer vision pipeline" loading="lazy" decoding="async" src="assets/images/robo-car-soccer.webp" />
